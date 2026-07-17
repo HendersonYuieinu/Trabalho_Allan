@@ -1,4 +1,4 @@
-package com.mycompany.sistema_geral_de_gestao;
+
 
 import java.time.LocalDate;
 
@@ -9,15 +9,17 @@ public class ItemAcervo {
     private LocalDate dataAquisicao;
     private String estadoConservacao;
     private String localizacao;
+    private boolean raroOuFragil;
 
     public ItemAcervo(int codigo, String titulo, LocalDate dataAquisicao,
-                      String estadoConservacao, String localizacao) {
+                      String estadoConservacao, String localizacao, boolean raroOuFragil) {
 
         this.codigo = codigo;
         this.titulo = titulo;
         this.dataAquisicao = dataAquisicao;
         this.estadoConservacao = estadoConservacao;
         this.localizacao = localizacao;
+        this.raroOuFragil = raroOuFragil;
     }
 
     public int getCodigo() {
