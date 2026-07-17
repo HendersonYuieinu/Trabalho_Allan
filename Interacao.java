@@ -3,31 +3,22 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Interacao {
-    private int id;
     private ItemAcervo item;
     private Frequentador frequentador;
     private String tipo; //CONSULTA, EMPRESTIMO, ACESSO_DIGITAL, RESERVA 
-    private LocalDateTime data;
+    private LocalDate data;
     private LocalDate dataDevolucaoPrevista;
     private LocalDate dataDevolucaoReal;
     
-    public Interacao(int id, ItemAcervo item, Frequentador frequentador, String tipo, LocalDateTime data,
-            LocalDate dataDevolucaoPrevista, LocalDate dataDevolucaoReal) {
-        this.id = id;
+ 
+
+    public Interacao(ItemAcervo item, Frequentador frequentador, String tipo, LocalDate data,
+            LocalDate dataDevolucaoPrevista) {
         this.item = item;
         this.frequentador = frequentador;
         this.tipo = tipo;
         this.data = data;
         this.dataDevolucaoPrevista = dataDevolucaoPrevista;
-        this.dataDevolucaoReal = dataDevolucaoReal;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public ItemAcervo getItem() {
@@ -54,11 +45,11 @@ public class Interacao {
         this.tipo = tipo;
     }
 
-    public LocalDateTime getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(LocalDateTime data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 

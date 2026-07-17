@@ -9,12 +9,16 @@ public class Filme extends ItemAcervo {
     private int duracao;
     
     public Filme(int codigo, String titulo, LocalDate dataAquisicao, String estadoConservacao, String localizacao,
-            boolean raroOuFragil, String diretor, int ano, int duracao) {
-        super(codigo, titulo, dataAquisicao, estadoConservacao, localizacao, raroOuFragil);
+            boolean raro, boolean disponivel, String diretor, int ano, int duracao) {
+        super(codigo, titulo, dataAquisicao, estadoConservacao, localizacao, raro, disponivel);
         this.diretor = diretor;
         this.ano = ano;
         this.duracao = duracao;
     }
+
+
+
+
 
 
 }
