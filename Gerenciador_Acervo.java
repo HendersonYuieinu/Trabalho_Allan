@@ -74,16 +74,16 @@ public class Gerenciador_Acervo {
         double multa = 0;
 
         if(dataDevolucaoReal.isBefore(prevista) || dataDevolucaoReal.isEqual(prevista)){
+            System.out.println("Devolução no prazo. Sem multas.\n");
             return;
         }
 
         multa = dias * taxaDiaria * interacao.getFrequentador().getModificadorMulta();
 
         if(multa > 0){
-            System.out.println("Devolucao com atraso de "+dias+". Multa: R$ "+multa);
+            System.out.println("Devolucao com atraso de "+dias+" dias. Multa: R$ "+multa+"\n");
             return;
         }
-        System.out.println("Devolução no prazo. Sem multas.");
 
     }
 
@@ -107,7 +107,7 @@ public class Gerenciador_Acervo {
         }
         
             for(ItemAcervo item : recomendacoes){
-                System.out.println("-> "+ item.getTitulo());
+                System.out.println("-> "+ item.getTitulo()+", de "+item.getAutor());
             }
     }
 

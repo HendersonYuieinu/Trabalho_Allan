@@ -32,14 +32,16 @@ public class Frequentador {
     public ArrayList<ItemAcervo> obterRecomendacoesAutor(ArrayList<ItemAcervo> acervoCompleto){
         String autorModal = "";
         ArrayList<ItemAcervo> recomendacoes = new ArrayList<>();
+        int modalcont = 0;
+
         if(historico == null || historico.isEmpty()){
             return recomendacoes;
         }else{
-            int modalcont = 0;
-
+            autorModal = getHistorico().getFirst().getItem().getAutor();
+            
             for(Interacao item : getHistorico()){
-                int contagem = 0;
-                autorModal = item.getItem().getAutor();
+                int contagem = 0;    
+
                 for(Interacao itemCont : getHistorico()){
                     if(itemCont.getItem().getAutor().equals(item.getItem().getAutor())){
                         contagem = contagem + 1;
