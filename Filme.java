@@ -14,6 +14,24 @@ public class Filme extends ItemAcervo {
         this.ano = ano;
         this.duracao = duracao;
     }
+    public String getDiretor() {
+        return diretor;
+    }
+    public void setDiretor(String diretor) {
+        this.diretor = diretor;
+    }
+    public int getAno() {
+        return ano;
+    }
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+    public int getDuracao() {
+        return duracao;
+    }
+    public void setDuracao(int duracao) {
+        this.duracao = duracao;
+    }
     
    
 

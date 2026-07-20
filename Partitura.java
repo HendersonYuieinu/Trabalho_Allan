@@ -10,6 +10,14 @@ public class Partitura extends ItemAcervo {
         super(codigo, titulo, dataAquisicao, estadoConservacao, localizacao, raro, disponivel, autor);
         this.instrumentacao = instrumentacao;
     }
+
+    public String getInstrumentacao() {
+        return instrumentacao;
+    }
+
+    public void setInstrumentacao(String instrumentacao) {
+        this.instrumentacao = instrumentacao;
+    }
     
 
    

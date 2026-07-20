@@ -13,6 +13,22 @@ public class ArteDigital extends ItemAcervo {
         this.resolucao = resolucao;
         this.formatoArquivo = formatoArquivo;
     }
+
+    public String getResolucao() {
+        return resolucao;
+    }
+
+    public void setResolucao(String resolucao) {
+        this.resolucao = resolucao;
+    }
+
+    public String getFormatoArquivo() {
+        return formatoArquivo;
+    }
+
+    public void setFormatoArquivo(String formatoArquivo) {
+        this.formatoArquivo = formatoArquivo;
+    }
     
    
 

@@ -12,6 +12,22 @@ public class Gravacao extends ItemAcervo {
         this.duracao = duracao;
         this.qualidadeAudio = qualidadeAudio;
     }
+
+    public int getDuracao() {
+        return duracao;
+    }
+
+    public void setDuracao(int duracao) {
+        this.duracao = duracao;
+    }
+
+    public String getQualidadeAudio() {
+        return qualidadeAudio;
+    }
+
+    public void setQualidadeAudio(String qualidadeAudio) {
+        this.qualidadeAudio = qualidadeAudio;
+    }
     
     
 

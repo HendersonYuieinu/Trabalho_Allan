@@ -11,6 +11,18 @@ public class Fotografia extends ItemAcervo {
         this.tecnica = tecnica;
         this.dimensoes = dimensoes;
     }
+    public String getTecnica() {
+        return tecnica;
+    }
+    public void setTecnica(String tecnica) {
+        this.tecnica = tecnica;
+    }
+    public String getDimensoes() {
+        return dimensoes;
+    }
+    public void setDimensoes(String dimensoes) {
+        this.dimensoes = dimensoes;
+    }
     
     
 

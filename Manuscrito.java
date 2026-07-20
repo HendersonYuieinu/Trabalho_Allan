@@ -10,6 +10,18 @@ public class Manuscrito extends ItemAcervo {
         this.datacao = datacao;
         this.estadoOriginal = estadoOriginal;
     }
+    public String getDatacao() {
+        return datacao;
+    }
+    public void setDatacao(String datacao) {
+        this.datacao = datacao;
+    }
+    public String getEstadoOriginal() {
+        return estadoOriginal;
+    }
+    public void setEstadoOriginal(String estadoOriginal) {
+        this.estadoOriginal = estadoOriginal;
+    }
 
 
   
