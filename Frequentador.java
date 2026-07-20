@@ -27,6 +27,38 @@ public class Frequentador {
         historico = new ArrayList<>();
     }
 
+
+    public ArrayList<ItemAcervo> obterRecomendacoesAutor(ArrayList<ItemAcervo> acervoCompleto){
+        String autorModal = "";
+        ArrayList<ItemAcervo> recomendacoes = new ArrayList<>();
+        if(historico == null || historico.isEmpty()){
+            return recomendacoes;
+        }else{
+            int modalcont = 0;
+
+            for(Interacao item : historico){
+                int contagem = 0;
+                autorModal = item.getItem().getAutor();
+                for(Interacao itemCont : historico){
+                    if(itemCont.getItem().getAutor().equals(item.getItem().getAutor())){
+                        contagem = contagem + 1;
+                    }
+                    if(contagem > modalcont){
+                        modalcont = contagem;
+                        autorModal = item.getItem().getAutor();
+                    }
+                }
+            }
+
+            for(ItemAcervo item : acervoCompleto){
+                if(item.getAutor().equals(autorModal)){
+                    recomendacoes.add(item);
+                }
+            }
+        }
+        return recomendacoes;
+    }
+
     public void adicionarInteracao(Interacao interacao){
         historico.add(interacao);
     }

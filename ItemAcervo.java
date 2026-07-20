@@ -11,9 +11,10 @@ public class ItemAcervo {
     private String localizacao;
     private boolean raro;
     private boolean disponivel;
+    private String autor;
 
     public ItemAcervo(int codigo, String titulo, LocalDate dataAquisicao,
-                      String estadoConservacao, String localizacao, boolean raro, boolean disponivel) {
+                      String estadoConservacao, String localizacao, boolean raro, boolean disponivel, String autor) {
 
         this.codigo = codigo;
         this.titulo = titulo;
@@ -22,6 +23,15 @@ public class ItemAcervo {
         this.localizacao = localizacao;
         this.raro = raro;
         this.disponivel = disponivel;
+        this.autor = autor;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
     }
 
     public void setCodigo(int codigo) {
