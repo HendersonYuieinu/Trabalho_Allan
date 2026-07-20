@@ -1,4 +1,5 @@
 
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -36,10 +37,10 @@ public class Frequentador {
         }else{
             int modalcont = 0;
 
-            for(Interacao item : historico){
+            for(Interacao item : getHistorico()){
                 int contagem = 0;
                 autorModal = item.getItem().getAutor();
-                for(Interacao itemCont : historico){
+                for(Interacao itemCont : getHistorico()){
                     if(itemCont.getItem().getAutor().equals(item.getItem().getAutor())){
                         contagem = contagem + 1;
                     }

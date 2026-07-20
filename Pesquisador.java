@@ -1,4 +1,5 @@
 
+
 import java.time.LocalDate;
 
 public class Pesquisador extends Frequentador {

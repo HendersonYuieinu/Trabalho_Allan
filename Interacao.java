@@ -1,4 +1,5 @@
 
+
 import java.time.LocalDate;
 
 public class Interacao {
@@ -19,6 +20,15 @@ public class Interacao {
         this.data = data;
         this.dataDevolucaoPrevista = dataDevolucaoPrevista;
     }
+    
+
+    public Interacao(ItemAcervo item, Frequentador frequentador, String tipo, LocalDate data) {
+        this.item = item;
+        this.frequentador = frequentador;
+        this.tipo = tipo;
+        this.data = data;
+    }
+
 
     public ItemAcervo getItem() {
         return item;

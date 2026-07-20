@@ -1,5 +1,6 @@
 
 
+
 import java.time.LocalDate;
 
 public class ItemAcervo {
@@ -8,19 +9,17 @@ public class ItemAcervo {
     private String titulo;
     private LocalDate dataAquisicao;
     private String estadoConservacao;
-    private String localizacao;
     private boolean raro;
     private boolean disponivel;
     private String autor;
 
-    public ItemAcervo(int codigo, String titulo, LocalDate dataAquisicao,
-                      String estadoConservacao, String localizacao, boolean raro, boolean disponivel, String autor) {
 
+    public ItemAcervo(int codigo, String titulo, LocalDate dataAquisicao, String estadoConservacao, boolean raro,
+            boolean disponivel, String autor) {
         this.codigo = codigo;
         this.titulo = titulo;
         this.dataAquisicao = dataAquisicao;
         this.estadoConservacao = estadoConservacao;
-        this.localizacao = localizacao;
         this.raro = raro;
         this.disponivel = disponivel;
         this.autor = autor;
@@ -50,10 +49,6 @@ public class ItemAcervo {
         this.estadoConservacao = estadoConservacao;
     }
 
-    public void setLocalizacao(String localizacao) {
-        this.localizacao = localizacao;
-    }
-
     public boolean isRaro() {
         return raro;
     }
@@ -78,9 +73,6 @@ public class ItemAcervo {
         return estadoConservacao;
     }
 
-    public String getLocalizacao() {
-        return localizacao;
-    }
 
     public boolean isDisponivel() {
         return disponivel;

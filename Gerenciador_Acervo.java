@@ -18,7 +18,7 @@ public class Gerenciador_Acervo {
 
     public ArrayList<ItemAcervo> buscarPorTitulo(String titulo){
         ArrayList<ItemAcervo>lista = new ArrayList<>();
-        for (ItemAcervo itemAcervo : lista) {
+        for (ItemAcervo itemAcervo : this.acervo) {
             if(itemAcervo.getTitulo().equals(titulo)){
                 lista.add(itemAcervo);
             }
@@ -27,37 +27,38 @@ public class Gerenciador_Acervo {
         return lista;
     }
 
-    public void realizarEmprestimo(Frequentador freq, ItemAcervo item){
+    public Interacao realizarEmprestimo(Frequentador freq, ItemAcervo item){
         long itensAtivos = 0;
-        for (Interacao interacao : historicoInteracoes) {
+        for (Interacao interacao : getHistoricoInteracoes()) {
             if(interacao.getFrequentador().equals(freq) && interacao.getDataDevolucaoReal() == null){
                 itensAtivos = itensAtivos + 1;
             }
             
         }
         if(itensAtivos >= freq.getLimiteItens()){
-            System.out.println("Bloqueado: Limite de itens atingido para " + freq.getNome());
-            return;
+            System.out.println("Bloqueado: Limite de itens atingido para " + freq.getNome()+"\n");
+            return null;
         }
         if(item.isRaro() && !freq.isAcessoRaros()){
-            System.out.println("Bloqueado: "+ freq.getNome() + "Não tem permissão para itens raros");
-            return;
+            System.out.println("Bloqueado: "+ freq.getNome() + " Não tem permissão para itens raros\n");
+            return null;
         }
 
         if(!item.isDisponivel()){
-            System.out.println("Item indisponivel.");
-            return;
+            System.out.println("Item indisponivel.\n");
+            return null;
         }
 
-        item.setDisponivel(false);
         LocalDate devolucaoprevista = LocalDate.now().plusDays(freq.getPrazoDias());
-
-        Interacao novainInteracao = new Interacao(item, freq, "EMPRESTIMO", LocalDate.now(), devolucaoprevista);
-
-        historicoInteracoes.add(novainInteracao);
-
-        System.out.println("Emprestimo de '"+item.getTitulo()+"' realizado para " + freq.getNome());
         
+        Interacao novainInteracao = new Interacao(item, freq, "EMPRESTIMO", LocalDate.now(), devolucaoprevista);
+        freq.getHistorico().add(novainInteracao);
+        historicoInteracoes.add(novainInteracao);
+        item.setDisponivel(false);
+
+        System.out.println("Emprestimo de '"+item.getTitulo()+"' realizado para " + freq.getNome() +"\n");
+        return novainInteracao;
+
     }
 
 
@@ -89,7 +90,7 @@ public class Gerenciador_Acervo {
     public void cadastrarEvento(Evento evento){
         eventos.add(evento);
 
-        System.out.println("EVENTO AGENDADO: "+ evento.getNome() +" no espaço "+evento.getLocal());
+        System.out.println("EVENTO AGENDADO: "+ evento.getNome());
         for (ItemAcervo item : evento.getItens()) {
             item.setDisponivel(false);
             
@@ -99,14 +100,46 @@ public class Gerenciador_Acervo {
 
     public void exibirRecomendacoes(Frequentador freq){
         System.out.println("Recomendações para: "+ freq.getNome() +"\n");
-        ArrayList<ItemAcervo> recomendacoes = freq.obterRecomendacoesAutor(this.acervo);
+        ArrayList<ItemAcervo> recomendacoes = freq.obterRecomendacoesAutor(getAcervo());
         if (recomendacoes.isEmpty()){
             System.out.println("Não foi possivel gerar recomendações (Historico vazio).");
             return;
         }
         
             for(ItemAcervo item : recomendacoes){
-                System.out.println("-> "+ item.getTitulo() +"\n");
+                System.out.println("-> "+ item.getTitulo());
             }
+    }
+
+    public ArrayList<ItemAcervo> getAcervo() {
+        return acervo;
+    }
+
+    public void setAcervo(ArrayList<ItemAcervo> acervo) {
+        this.acervo = acervo;
+    }
+
+    public ArrayList<Frequentador> getFrequentadores() {
+        return frequentadores;
+    }
+
+    public void setFrequentadores(ArrayList<Frequentador> frequentadores) {
+        this.frequentadores = frequentadores;
+    }
+
+    public ArrayList<Interacao> getHistoricoInteracoes() {
+        return historicoInteracoes;
+    }
+
+    public void setHistoricoInteracoes(ArrayList<Interacao> historicoInteracoes) {
+        this.historicoInteracoes = historicoInteracoes;
+    }
+
+    public ArrayList<Evento> getEventos() {
+        return eventos;
+    }
+
+    public void setEventos(ArrayList<Evento> eventos) {
+        this.eventos = eventos;
     }
 }
